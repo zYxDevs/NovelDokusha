@@ -16,9 +16,7 @@ def setEnvValue(key, value):
 def getAPKs():
     list = []
     for root, dirs, files in os.walk(workDir):
-        for file in files:
-            if file.endswith(extension):
-                list.append([root, file])
+        list.extend([root, file] for file in files if file.endswith(extension))
     return list
 
 
